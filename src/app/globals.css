@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --body-bg-color: #fff;
+  --header-bg-color: #ffffff;
+  --footer-bg-color: #fffff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,21 +13,33 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+    --header-bg-color: #171717;
+    --footer-bg-color: #171717;
   }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: var(--body-bg-color);
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+header {
+    background-color: var(--header-bg-color);
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+footer {
+  background-color: var(--header-bg-color);
+}
+
+.publicationsSelector {
+  @apply flex gap-4 mb-10;
+
+  a {
+    @apply rounded-full bg-slate-100 p-2 px-4 font-medium text-lg text-black;
+  }
+
+  a.active {
+    @apply bg-black text-white;
   }
 }
